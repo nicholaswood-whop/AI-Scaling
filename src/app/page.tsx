@@ -43,42 +43,11 @@ const steps = [
   },
 ];
 
-const frameworkDays = [
-  {
-    day: "1",
-    title: "Find Your Niche & Validate",
-    desc: "Use AI to research markets, analyze competitors, and validate your idea in hours instead of weeks.",
-  },
-  {
-    day: "2",
-    title: "Build Your Product",
-    desc: "Let your AI operator create your digital product — course outline, ebook, templates, or toolkit.",
-  },
-  {
-    day: "3",
-    title: "Set Up Your Sales System",
-    desc: "Automated checkout, delivery, and follow-up sequences — all wired up without touching code.",
-  },
-  {
-    day: "4",
-    title: "Create Your Marketing Engine",
-    desc: "AI-generated ad creatives, copy variations, and social content — ready to deploy.",
-  },
-  {
-    day: "5",
-    title: "Launch & Capture Leads",
-    desc: "Go live with landing pages, lead magnets, and conversion tracking — all optimized by AI.",
-  },
-  {
-    day: "6",
-    title: "Optimize & Iterate",
-    desc: "Use AI analytics to find what's working, kill what's not, and double down on winners.",
-  },
-  {
-    day: "7",
-    title: "Systemize & Scale",
-    desc: "Turn everything into repeatable systems that compound — growth on autopilot.",
-  },
+const frameworkStats = [
+  { value: "7", label: "Days to Launch" },
+  { value: "15+", label: "Integrations" },
+  { value: "1", label: "AI Operator" },
+  { value: "$0", label: "Team Needed" },
 ];
 
 export default function Home() {
@@ -216,40 +185,17 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 7-Day Timeline */}
-          <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {frameworkDays.slice(0, 4).map((d) => (
+          {/* Stats Row */}
+          <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {frameworkStats.map((s) => (
               <div
-                key={d.day}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                key={s.label}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center"
               >
-                <div className="flex items-center gap-2">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent">
-                    {d.day}
-                  </span>
-                  <h3 className="font-semibold text-white">{d.title}</h3>
+                <div className="text-3xl font-extrabold text-white sm:text-4xl">
+                  {s.value}
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-gray-400">
-                  {d.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {frameworkDays.slice(4).map((d) => (
-              <div
-                key={d.day}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent2/20 text-sm font-bold text-accent2">
-                    {d.day}
-                  </span>
-                  <h3 className="font-semibold text-white">{d.title}</h3>
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-gray-400">
-                  {d.desc}
-                </p>
+                <div className="mt-1 text-sm text-gray-400">{s.label}</div>
               </div>
             ))}
           </div>
@@ -261,14 +207,12 @@ export default function Home() {
             </h3>
             <ul className="mt-6 space-y-3">
               {[
-                "Complete 7-day action plan with daily deliverables",
-                "AI operator prompt templates for every stage",
-                "Niche validation & market research workflows",
-                "Digital product creation playbook (courses, ebooks, templates)",
-                "Sales funnel setup guide with automation sequences",
-                "Ad creative generation framework & copy templates",
-                "Analytics dashboard setup & optimization checklist",
-                "Bonus: The exact AI tools stack I use to run 10+ revenue streams",
+                "The AI operator that builds your entire business for you",
+                "Complete 7-day action plan — what to do each day",
+                "The exact system used to launch in a single session",
+                "How to go from zero to live checkout in days, not months",
+                "Ad campaigns, creatives, and targeting — done for you",
+                "The full tech stack — every tool, connected and automated",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-gray-200">
                   <span className="mt-0.5 text-accent2">✓</span>
