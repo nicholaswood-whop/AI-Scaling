@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
+    "@whop/checkout": "^0.0.54",
     "next": "^15.5.18",
     "react": "19.0.0",
     "react-dom": "19.0.0"
