@@ -4,12 +4,11 @@ import { useEffect } from "react";
 import WhopCheckout from "@/components/WhopCheckout";
 
 /**
- * Standalone ebook landing page with embedded checkout and VSL placeholder.
+ * Standalone ebook landing page — anonymous, teaser-level.
  * All ad traffic should be directed here: aiscalingco.com/ebook
  */
 export default function EbookPage() {
   useEffect(() => {
-    // Fire Meta Pixel ViewContent event for this specific page
     if (typeof window !== "undefined" && typeof window.fbq === "function") {
       window.fbq("track", "ViewContent", {
         content_name: "AI Business Framework - 7 Day Launch",
@@ -18,7 +17,6 @@ export default function EbookPage() {
         currency: "USD",
       });
     }
-    // GA4 view_item event
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("event", "view_item", {
         currency: "USD",
@@ -50,115 +48,103 @@ export default function EbookPage() {
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400 leading-relaxed">
-            The complete step-by-step framework for using an AI operator to go
-            from zero to a launched digital product — validated idea, built
-            product, live sales system, and marketing engine.
+            The step-by-step system that uses an AI operator to do{" "}
+            <em>everything</em> for you — build your product, deploy your site,
+            create your ads, and launch your business. In one week.
           </p>
         </div>
       </section>
 
       {/* VSL Section */}
-      <section className="mx-auto max-w-3xl px-6 pb-12">
-        <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl shadow-indigo-500/10">
-          {/* VSL placeholder — replace src with your actual video URL */}
-          <div className="flex h-full w-full items-center justify-center">
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-500/20 ring-1 ring-indigo-500/40">
-                <svg
-                  className="h-8 w-8 text-indigo-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                </svg>
-              </div>
-              <p className="text-sm text-gray-500 font-mono uppercase tracking-wider">
-                VSL Coming Soon
-              </p>
-              <p className="mt-1 text-xs text-gray-600">
-                Replace this with your video embed
-              </p>
-            </div>
-          </div>
+      <section className="mx-auto max-w-md px-6 pb-12">
+        <div className="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl shadow-indigo-500/10">
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/vsl-anon.mp4" type="video/mp4" />
+          </video>
         </div>
-        <p className="mt-3 text-center text-xs text-gray-600">
-          Watch the 3-minute breakdown of the framework
-        </p>
       </section>
 
-      {/* What You Get */}
+      {/* The Hook — Curiosity-Driven */}
       <section className="mx-auto max-w-4xl px-6 pb-16">
         <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10">
-          <h2 className="mb-8 text-center text-2xl font-bold text-white">
-            What&apos;s Inside the Framework
+          <h2 className="mb-6 text-center text-2xl font-bold text-white">
+            What if AI could do everything for you?
           </h2>
+          <p className="text-center text-gray-400 leading-relaxed max-w-2xl mx-auto mb-8">
+            Not just answer questions. Not just write copy. But actually{" "}
+            <span className="text-white font-semibold">build your entire business</span>{" "}
+            — the product, the website, the checkout, the ads, the tracking,
+            the automations — all in 7 days.
+          </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                day: "01",
-                title: "Find & Validate Your Niche",
-                desc: "AI-powered market research, competitive analysis, and idea validation in hours — not weeks.",
+                icon: "⚡",
+                text: "An AI operator that writes code, builds websites, and deploys to production",
               },
               {
-                day: "02",
-                title: "Build Your Product",
-                desc: "Generate a complete digital product (ebook, course, templates) using AI operator prompts.",
+                icon: "📊",
+                text: "Ad campaigns created, targeted, and ready to launch — without touching Ads Manager",
               },
               {
-                day: "03",
-                title: "Set Up Your Sales System",
-                desc: "Live checkout page, automatic delivery, email capture, and 3-email welcome sequence.",
+                icon: "🔄",
+                text: "Automated tracking, analytics, and reporting — set up once, runs forever",
               },
               {
-                day: "04",
-                title: "Create Your Marketing Engine",
-                desc: "Ad creatives, copy variations, content calendar, and visual assets — all AI-generated.",
-              },
-              {
-                day: "05",
-                title: "Launch & Capture Leads",
-                desc: "Pre-launch checklist, tracking pixels, launch sequence, and your first customers.",
-              },
-              {
-                day: "06",
-                title: "Optimize & Iterate",
-                desc: "Data analysis, kill underperformers, fix funnel leaks, test new variations.",
-              },
-              {
-                day: "07",
-                title: "Systemize & Scale",
-                desc: "Post-purchase automations, content repurposing, reporting dashboards, and scale plan.",
+                icon: "💰",
+                text: "Complete checkout and delivery system — from click to purchase to fulfillment",
               },
             ].map((item) => (
               <div
-                key={item.day}
-                className="flex gap-4 rounded-xl border border-white/5 bg-white/[0.02] p-4"
+                key={item.text}
+                className="flex gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-4"
               >
-                <span className="font-mono text-2xl font-bold text-indigo-400/60">
-                  {item.day}
-                </span>
-                <div>
-                  <h3 className="font-semibold text-white text-sm">
-                    {item.title}
-                  </h3>
-                  <p className="mt-1 text-xs text-gray-500 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+                <span className="text-xl">{item.icon}</span>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Bonus */}
-          <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-4 text-center">
-            <p className="text-xs font-mono uppercase tracking-wider text-cyan-400 mb-1">
-              Bonus Included
-            </p>
-            <p className="text-sm text-gray-300">
-              The Complete AI Tools Stack — every tool used to run 10+ revenue
-              streams
-            </p>
+          <p className="mt-8 text-center text-sm text-gray-500">
+            This isn&apos;t theory. Every part of this system was built the way
+            the framework describes — in a single session.
+          </p>
+        </div>
+      </section>
+
+      {/* What's Inside — Vague Teaser */}
+      <section className="mx-auto max-w-4xl px-6 pb-16">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10">
+          <h2 className="mb-8 text-center text-2xl font-bold text-white">
+            Inside the Framework
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              "The exact AI operator that builds your business for you",
+              "7-day action plan — what to do each day, step by step",
+              "Copy-paste prompts that make the AI do the heavy lifting",
+              "How to set up a $27 product and start collecting revenue",
+              "The complete tech stack — every tool, connected and automated",
+              "How to go from zero followers to paid ads in under a week",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-4"
+              >
+                <span className="mt-0.5 text-cyan-400 text-sm">✓</span>
+                <span className="text-sm text-gray-300">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -169,7 +155,7 @@ export default function EbookPage() {
           {[
             { stat: "7 Days", label: "From zero to launched" },
             { stat: "$27", label: "One-time payment" },
-            { stat: "11 Pages", label: "Of actionable frameworks" },
+            { stat: "18 Pages", label: "Complete system" },
           ].map((item) => (
             <div
               key={item.label}
@@ -189,11 +175,10 @@ export default function EbookPage() {
             Instant Access
           </p>
           <h2 className="text-2xl font-bold text-white mb-2">
-            Get the 7-Day AI Launch Framework
+            Get the 7-Day AI Launch System
           </h2>
           <p className="text-gray-400 text-sm mb-6">
-            One-time payment · Instant download · No upsells to get the
-            &quot;real&quot; content
+            One-time payment · Instant download · The complete system revealed
           </p>
           <WhopCheckout />
           <p className="mt-4 text-xs text-gray-600">
@@ -211,19 +196,19 @@ export default function EbookPage() {
           {[
             {
               q: "What exactly do I get?",
-              a: "An 11-page PDF framework with day-by-day instructions, AI operator prompts you can copy-paste, checklists, and a complete tools stack. Everything you need to launch a digital product in 7 days.",
+              a: "An 18-page PDF with the complete system — the AI operator, the step-by-step process, the prompts, checklists, and the full tech stack. Everything you need to launch in 7 days.",
             },
             {
               q: "Do I need technical skills?",
-              a: "No. The framework is designed for non-technical people. If you can use ChatGPT or Claude, you can follow this system.",
+              a: "No. The system is designed for non-technical people. If you can send a message, you can use this framework.",
             },
             {
               q: "What kind of business can I launch with this?",
-              a: "Any digital product — online courses, ebooks, template packs, coaching programs, SaaS tools, or membership communities. You pick your path on Day 1.",
+              a: "Any digital product — ebooks, courses, template packs, coaching programs, or membership communities.",
             },
             {
-              q: "Is this just AI-generated fluff?",
-              a: "No. This is a real framework used to launch real businesses. The AI prompts are tools within a proven system — not a replacement for strategy.",
+              q: "What's the AI operator?",
+              a: "That's what you'll find out inside. It's the core of the entire system — and it does the work for you.",
             },
             {
               q: "Can I get a refund?",
