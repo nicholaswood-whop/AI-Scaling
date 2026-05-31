@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MetaPixel from "@/components/MetaPixel";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiscalingco.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
     "AI automation",
     "growth marketing",
     "Nicholas Wood",
+    "AI business",
+    "digital product launch",
   ],
   openGraph: {
     title: "Nicholas Wood — AI Scaling for Growth",
@@ -42,6 +45,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         <MetaPixel />
+        <GoogleAnalytics />
       </body>
     </html>
   );

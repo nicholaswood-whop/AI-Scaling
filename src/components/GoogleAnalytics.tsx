@@ -1,0 +1,35 @@
+import Script from "next/script";
+
+/**
+ * Loads Google Analytics 4 (GA4) via the global site tag (gtag.js).
+ *
+ * Set NEXT_PUBLIC_GA_MEASUREMENT_ID in your environment to enable.
+ * When the id is absent (e.g. local dev), nothing is injected.
+ */
+export default function GoogleAnalytics() {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
+  if (!gaId) {
+    return null;
+  }
+
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gaId}', {
+            page_title: document.title,
+            send_page_view: true,
+          });
+        `}
+      </Script>
+    </>
+  );
+}
