@@ -84,37 +84,19 @@ export default function EbookV2Page() {
           className="relative aspect-[9/16] max-h-[600px] w-full max-w-[340px] mx-auto overflow-hidden rounded-lg"
           style={{
             border: "1px solid rgba(255,255,255,0.08)",
-            backgroundColor: "rgba(255,255,255,0.03)",
+            backgroundColor: "#0a0a0a",
           }}
         >
-          <div className="flex h-full w-full items-center justify-center">
-            <div className="text-center">
-              <div
-                className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
-                style={{
-                  border: "1px solid rgba(255,255,255,0.15)",
-                  backgroundColor: "rgba(255,255,255,0.05)",
-                }}
-              >
-                <svg
-                  className="h-7 w-7"
-                  fill="white"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                </svg>
-              </div>
-              <p
-                className="text-xs uppercase tracking-[0.2em]"
-                style={{
-                  fontFamily: "'Courier New', Courier, monospace",
-                  color: "rgba(255,255,255,0.28)",
-                }}
-              >
-                WATCH THE BREAKDOWN
-              </p>
-            </div>
-          </div>
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/vsl-pdf-style.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
