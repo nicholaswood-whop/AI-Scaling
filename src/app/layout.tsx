@@ -7,31 +7,35 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiscalingco.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Nicholas Wood — AI Scaling for Growth",
+  title: "AI Scaling Co — Launch a Business with AI in 7 Days",
   description:
-    "I help founders and operators scale revenue with AI-driven growth systems. Strategy, automation, and execution that compounds.",
+    "The complete step-by-step framework for using an AI operator to go from zero to a launched digital product in 7 days. No team needed.",
   keywords: [
     "AI scaling",
-    "growth operations",
+    "AI business launch",
     "AI automation",
-    "growth marketing",
-    "Nicholas Wood",
-    "AI business",
+    "AI operator",
     "digital product launch",
+    "7 day framework",
+    "AI business",
   ],
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
-    title: "Nicholas Wood — AI Scaling for Growth",
+    title: "AI Scaling Co — Launch a Business with AI in 7 Days",
     description:
-      "AI-driven growth systems that scale revenue. Strategy, automation, and execution that compounds.",
+      "The complete step-by-step framework for using an AI operator to go from zero to a launched digital product in 7 days.",
     url: siteUrl,
-    siteName: "AI Scaling",
+    siteName: "AI Scaling Co",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nicholas Wood — AI Scaling for Growth",
+    title: "AI Scaling Co — Launch a Business with AI in 7 Days",
     description:
-      "AI-driven growth systems that scale revenue. Strategy, automation, and execution that compounds.",
+      "The complete step-by-step framework for using an AI operator to go from zero to a launched digital product in 7 days.",
   },
 };
 

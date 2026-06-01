@@ -81,7 +81,7 @@ export default function EbookV2Page() {
       {/* ── VSL Section ── */}
       <section className="mx-auto max-w-3xl px-8 pb-16">
         <div
-          className="relative aspect-[9/16] max-h-[600px] w-full max-w-[340px] mx-auto overflow-hidden rounded-lg"
+          className="relative aspect-video w-full overflow-hidden rounded-lg"
           style={{
             border: "1px solid rgba(255,255,255,0.08)",
             backgroundColor: "#0a0a0a",
