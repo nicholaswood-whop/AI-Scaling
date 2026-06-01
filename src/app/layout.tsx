@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import MetaPixel from "@/components/MetaPixel";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import WhopPixel from "@/components/WhopPixel";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiscalingco.com";
 
@@ -50,6 +51,7 @@ export default function RootLayout({
         {children}
         <MetaPixel />
         <GoogleAnalytics />
+        <WhopPixel />
       </body>
     </html>
   );
