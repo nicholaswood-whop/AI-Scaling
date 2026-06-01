@@ -130,7 +130,9 @@ export async function POST(request: Request) {
   // We only care about successful purchases
   if (
     event !== "membership.went_valid" &&
-    event !== "payment.succeeded"
+    event !== "membership_activated" &&
+    event !== "payment.succeeded" &&
+    event !== "payment_succeeded"
   ) {
     // Acknowledge other events without processing
     return NextResponse.json({ ok: true, skipped: true });
