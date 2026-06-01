@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import WhopCheckout from "@/components/WhopCheckout";
 
 /**
- * Standalone ebook landing page — anonymous, teaser-level.
- * All ad traffic should be directed here: aiscalingco.com/ebook
+ * PDF-style ebook landing page — matches the framework PDF aesthetic.
+ * Pure black background, white typography, monospaced labels, editorial whitespace.
+ * PDF-style ad campaigns link here: aiscalingco.com/ebook/v2
  */
 export default function EbookPage() {
   useEffect(() => {
@@ -33,31 +34,59 @@ export default function EbookPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#0a0a0f] text-gray-200">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="glow absolute inset-0 pointer-events-none" />
-        <div className="relative mx-auto max-w-4xl px-6 pt-16 pb-12 text-center">
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-cyan-400">
-            Instant Digital Download
-          </p>
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Launch a Business with AI in{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-              7 Days
-            </span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400 leading-relaxed">
-            The step-by-step system that uses an AI operator to do{" "}
-            <em>everything</em> for you — build your product, deploy your site,
-            create your ads, and launch your business. In one week.
-          </p>
-        </div>
+    <main
+      className="min-h-screen text-white"
+      style={{ backgroundColor: "#0a0a0a" }}
+    >
+      {/* ── Hero ── */}
+      <section className="mx-auto max-w-3xl px-8 pt-20 pb-16">
+        <p
+          className="mb-6 text-xs uppercase tracking-[0.25em]"
+          style={{
+            fontFamily: "'Courier New', Courier, monospace",
+            color: "rgba(255,255,255,0.35)",
+          }}
+        >
+          THE 7-DAY AI LAUNCH FRAMEWORK
+        </p>
+        <h1
+          className="text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+          style={{
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "-0.03em",
+          }}
+        >
+          Launch a Business
+          <br />
+          with AI in 7 Days
+        </h1>
+        <div
+          className="my-8"
+          style={{
+            width: 120,
+            height: 1,
+            backgroundColor: "rgba(255,255,255,0.15)",
+          }}
+        />
+        <p
+          className="text-lg leading-relaxed"
+          style={{ color: "rgba(255,255,255,0.50)" }}
+        >
+          The exact system for going from zero to a live, revenue-ready
+          digital business. One AI operator. One week.
+        </p>
       </section>
 
-      {/* VSL Section */}
-      <section className="mx-auto max-w-md px-6 pb-12">
-        <div className="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl shadow-indigo-500/10">
+      {/* ── VSL Section ── */}
+      <section className="mx-auto max-w-3xl px-8 pb-16">
+        <div
+          className="relative aspect-video w-full overflow-hidden rounded-lg"
+          style={{
+            border: "1px solid rgba(255,255,255,0.08)",
+            backgroundColor: "#0a0a0a",
+          }}
+        >
           <video
             className="h-full w-full object-cover"
             autoPlay
@@ -66,163 +95,355 @@ export default function EbookPage() {
             playsInline
             preload="auto"
           >
-            <source src="/vsl-anon.mp4" type="video/mp4" />
+            <source src="/vsl-pdf-style.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
 
-      {/* The Hook — Curiosity-Driven */}
-      <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10">
-          <h2 className="mb-6 text-center text-2xl font-bold text-white">
-            What if AI could do everything for you?
-          </h2>
-          <p className="text-center text-gray-400 leading-relaxed max-w-2xl mx-auto mb-8">
-            Not just answer questions. Not just write copy. But actually{" "}
-            <span className="text-white font-semibold">build your entire business</span>{" "}
-            — the product, the website, the checkout, the ads, the tracking,
-            the automations — all in 7 days.
-          </p>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              {
-                icon: "⚡",
-                text: "An AI operator that writes code, builds websites, and deploys to production",
-              },
-              {
-                icon: "📊",
-                text: "Ad campaigns created, targeted, and ready to launch — without touching Ads Manager",
-              },
-              {
-                icon: "🔄",
-                text: "Automated tracking, analytics, and reporting — set up once, runs forever",
-              },
-              {
-                icon: "💰",
-                text: "Complete checkout and delivery system — from click to purchase to fulfillment",
-              },
-            ].map((item) => (
-              <div
-                key={item.text}
-                className="flex gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-4"
-              >
-                <span className="text-xl">{item.icon}</span>
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-8 text-center text-sm text-gray-500">
-            This isn&apos;t theory. Every part of this system was built the way
-            the framework describes — in a single session.
-          </p>
-        </div>
-      </section>
-
-      {/* What's Inside — Vague Teaser */}
-      <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10">
-          <h2 className="mb-8 text-center text-2xl font-bold text-white">
-            Inside the Framework
-          </h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              "The exact AI operator that builds your business for you",
-              "7-day action plan — what to do each day, step by step",
-              "Copy-paste prompts that make the AI do the heavy lifting",
-              "How to set up a $27 product and start collecting revenue",
-              "The complete tech stack — every tool, connected and automated",
-              "How to go from zero followers to paid ads in under a week",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-4"
-              >
-                <span className="mt-0.5 text-cyan-400 text-sm">✓</span>
-                <span className="text-sm text-gray-300">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="mx-auto max-w-4xl px-6 pb-12">
-        <div className="grid gap-4 sm:grid-cols-3">
+      {/* ── Stats Row ── */}
+      <section className="mx-auto max-w-3xl px-8 pb-20">
+        <div className="grid grid-cols-4 gap-6">
           {[
-            { stat: "7 Days", label: "From zero to launched" },
-            { stat: "$27", label: "One-time payment" },
-            { stat: "18 Pages", label: "Complete system" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="rounded-xl border border-white/5 bg-white/[0.02] p-6 text-center"
-            >
-              <p className="text-3xl font-extrabold text-white">{item.stat}</p>
-              <p className="mt-1 text-sm text-gray-500">{item.label}</p>
+            { val: "7", label: "DAYS TO\nLAUNCH" },
+            { val: "15+", label: "INTEGRATIONS" },
+            { val: "1", label: "AI OPERATOR" },
+            { val: "$0", label: "TEAM NEEDED" },
+          ].map((s) => (
+            <div key={s.val} className="text-center">
+              <p
+                className="text-4xl font-extrabold sm:text-5xl"
+                style={{
+                  fontFamily:
+                    "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                  letterSpacing: "-0.04em",
+                }}
+              >
+                {s.val}
+              </p>
+              <p
+                className="mt-2 text-[10px] uppercase tracking-[0.2em] whitespace-pre-line"
+                style={{
+                  fontFamily: "'Courier New', Courier, monospace",
+                  color: "rgba(255,255,255,0.28)",
+                }}
+              >
+                {s.label}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA + Checkout */}
-      <section className="mx-auto max-w-xl px-6 pb-8">
-        <div className="rounded-2xl border border-indigo-500/20 bg-gradient-to-b from-indigo-500/5 to-transparent p-8 text-center">
-          <p className="text-xs font-mono uppercase tracking-wider text-indigo-400 mb-2">
-            Instant Access
+      {/* ── The Problem ── */}
+      <section className="mx-auto max-w-3xl px-8 pb-20">
+        <p
+          className="mb-4 text-xs uppercase tracking-[0.25em]"
+          style={{
+            fontFamily: "'Courier New', Courier, monospace",
+            color: "rgba(255,255,255,0.28)",
+          }}
+        >
+          THE PROBLEM
+        </p>
+        <h2
+          className="text-3xl font-extrabold tracking-tight sm:text-4xl"
+          style={{
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "-0.03em",
+          }}
+        >
+          Most people spend months.
+        </h2>
+        <div
+          className="my-6"
+          style={{
+            width: 120,
+            height: 1,
+            backgroundColor: "rgba(255,255,255,0.15)",
+          }}
+        />
+        <div className="space-y-2">
+          {[
+            "Building sites they never finish.",
+            "Running ads they don't understand.",
+            "Connecting tools that don't talk.",
+          ].map((line) => (
+            <p
+              key={line}
+              className="text-lg"
+              style={{ color: "rgba(255,255,255,0.50)" }}
+            >
+              {line}
+            </p>
+          ))}
+        </div>
+        <p
+          className="mt-8 text-2xl font-extrabold"
+          style={{
+            color: "rgba(255,255,255,0.65)",
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+          }}
+        >
+          Most quit before making $1.
+        </p>
+      </section>
+
+      {/* ── The System ── */}
+      <section className="mx-auto max-w-3xl px-8 pb-20">
+        <p
+          className="mb-4 text-xs uppercase tracking-[0.25em]"
+          style={{
+            fontFamily: "'Courier New', Courier, monospace",
+            color: "rgba(255,255,255,0.28)",
+          }}
+        >
+          THE SYSTEM
+        </p>
+        <h2
+          className="text-3xl font-extrabold tracking-tight sm:text-4xl"
+          style={{
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "-0.03em",
+          }}
+        >
+          What if an AI operator did everything for you?
+        </h2>
+        <div
+          className="my-6"
+          style={{
+            width: 120,
+            height: 1,
+            backgroundColor: "rgba(255,255,255,0.15)",
+          }}
+        />
+        <div className="space-y-3">
+          {[
+            "→ Built your website",
+            "→ Created your ad campaigns",
+            "→ Set up checkout and tracking",
+            "→ Launched your product",
+            "→ Managed your calendar and follow-ups",
+          ].map((line) => (
+            <p
+              key={line}
+              className="text-lg"
+              style={{
+                color: "rgba(255,255,255,0.50)",
+                fontFamily: "'Courier New', Courier, monospace",
+              }}
+            >
+              {line}
+            </p>
+          ))}
+        </div>
+        <p
+          className="mt-10 text-2xl font-extrabold"
+          style={{
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+          }}
+        >
+          While you sleep.
+        </p>
+      </section>
+
+      {/* ── Inside the Framework ── */}
+      <section className="mx-auto max-w-3xl px-8 pb-20">
+        <p
+          className="mb-4 text-xs uppercase tracking-[0.25em]"
+          style={{
+            fontFamily: "'Courier New', Courier, monospace",
+            color: "rgba(255,255,255,0.28)",
+          }}
+        >
+          WHAT YOU GET
+        </p>
+        <h2
+          className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-8"
+          style={{
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "-0.03em",
+          }}
+        >
+          Inside the Framework
+        </h2>
+        <div className="space-y-4">
+          {[
+            "The exact AI operator that builds your business for you",
+            "7-day action plan — what to do each day, step by step",
+            "Copy-paste prompts that make the AI do the heavy lifting",
+            "How to set up a $27 product and start collecting revenue",
+            "The complete tech stack — every tool, connected and automated",
+            "How to go from zero followers to paid ads in under a week",
+          ].map((item) => (
+            <div
+              key={item}
+              className="flex items-start gap-4 py-3"
+              style={{
+                borderBottom: "1px solid rgba(255,255,255,0.06)",
+              }}
+            >
+              <span
+                className="mt-1 text-xs"
+                style={{ color: "rgba(255,255,255,0.35)" }}
+              >
+                ✓
+              </span>
+              <span
+                className="text-base"
+                style={{ color: "rgba(255,255,255,0.70)" }}
+              >
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Not Theory ── */}
+      <section className="mx-auto max-w-3xl px-8 pb-20">
+        <p
+          className="mb-4 text-xs uppercase tracking-[0.25em]"
+          style={{
+            fontFamily: "'Courier New', Courier, monospace",
+            color: "rgba(255,255,255,0.28)",
+          }}
+        >
+          NOT THEORY
+        </p>
+        <h2
+          className="text-3xl font-extrabold tracking-tight sm:text-4xl"
+          style={{
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "-0.03em",
+          }}
+        >
+          This isn&apos;t a course. It&apos;s a system.
+        </h2>
+        <div
+          className="my-6"
+          style={{
+            width: 120,
+            height: 1,
+            backgroundColor: "rgba(255,255,255,0.15)",
+          }}
+        />
+        <p
+          className="text-lg leading-relaxed"
+          style={{ color: "rgba(255,255,255,0.50)" }}
+        >
+          The website, the ads, the checkout, the tracking — all built by the
+          system in one session. You&apos;re looking at the proof.
+        </p>
+      </section>
+
+      {/* ── CTA + Checkout ── */}
+      <section className="mx-auto max-w-xl px-8 pb-12">
+        <div className="text-center">
+          <p
+            className="mb-4 text-xs uppercase tracking-[0.25em]"
+            style={{
+              fontFamily: "'Courier New', Courier, monospace",
+              color: "rgba(255,255,255,0.28)",
+            }}
+          >
+            INSTANT DIGITAL DOWNLOAD
           </p>
-          <h2 className="text-2xl font-bold text-white mb-2">
-            Get the 7-Day AI Launch System
-          </h2>
-          <p className="text-gray-400 text-sm mb-6">
-            One-time payment · Instant download · The complete system revealed
+          <p
+            className="text-7xl font-extrabold mb-2"
+            style={{
+              fontFamily:
+                "'Helvetica Neue', Helvetica, Arial, sans-serif",
+              letterSpacing: "-0.04em",
+            }}
+          >
+            $27
+          </p>
+          <div
+            className="mx-auto my-6"
+            style={{
+              width: 120,
+              height: 1,
+              backgroundColor: "rgba(255,255,255,0.15)",
+            }}
+          />
+          <p
+            className="text-lg mb-1"
+            style={{ color: "rgba(255,255,255,0.50)" }}
+          >
+            18 pages. The full system revealed.
+          </p>
+          <p
+            className="text-lg mb-8"
+            style={{ color: "rgba(255,255,255,0.50)" }}
+          >
+            The AI operator. The prompts. The stack.
           </p>
           <WhopCheckout />
-          <p className="mt-4 text-xs text-gray-600">
+          <p
+            className="mt-4 text-xs"
+            style={{
+              fontFamily: "'Courier New', Courier, monospace",
+              color: "rgba(255,255,255,0.20)",
+            }}
+          >
             Delivered instantly as a PDF after checkout
           </p>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="mx-auto max-w-2xl px-6 pb-20">
-        <h2 className="mb-8 text-center text-xl font-bold text-white">
-          Frequently Asked Questions
+      {/* ── FAQ ── */}
+      <section className="mx-auto max-w-2xl px-8 pb-20 pt-8">
+        <h2
+          className="mb-10 text-2xl font-extrabold"
+          style={{
+            fontFamily:
+              "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "-0.03em",
+          }}
+        >
+          Questions
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-0">
           {[
             {
               q: "What exactly do I get?",
-              a: "An 18-page PDF with the complete system — the AI operator, the step-by-step process, the prompts, checklists, and the full tech stack. Everything you need to launch in 7 days.",
+              a: "An 18-page PDF with the complete system — the AI operator, the step-by-step process, the prompts, checklists, and the full tech stack.",
             },
             {
               q: "Do I need technical skills?",
-              a: "No. The system is designed for non-technical people. If you can send a message, you can use this framework.",
+              a: "No. If you can send a message, you can use this framework.",
             },
             {
-              q: "What kind of business can I launch with this?",
+              q: "What kind of business can I launch?",
               a: "Any digital product — ebooks, courses, template packs, coaching programs, or membership communities.",
             },
             {
               q: "What's the AI operator?",
-              a: "That's what you'll find out inside. It's the core of the entire system — and it does the work for you.",
+              a: "That's what you'll find out inside. It's the core of the entire system.",
             },
             {
               q: "Can I get a refund?",
-              a: "Due to the digital nature of this product, all sales are final. But if you follow the framework and don't see value, reach out and we'll make it right.",
+              a: "Due to the digital nature, all sales are final. But if you follow the framework and don't see value, reach out.",
             },
           ].map((item) => (
             <details
               key={item.q}
-              className="group rounded-xl border border-white/5 bg-white/[0.02] p-4"
+              className="group py-5"
+              style={{
+                borderBottom: "1px solid rgba(255,255,255,0.06)",
+              }}
             >
-              <summary className="flex cursor-pointer items-center justify-between font-medium text-white text-sm">
-                {item.q}
+              <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                <span>{item.q}</span>
                 <svg
-                  className="h-4 w-4 text-gray-500 transition-transform group-open:rotate-180"
+                  className="h-4 w-4 transition-transform group-open:rotate-180"
+                  style={{ color: "rgba(255,255,255,0.3)" }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -235,7 +456,10 @@ export default function EbookPage() {
                   />
                 </svg>
               </summary>
-              <p className="mt-3 text-sm text-gray-400 leading-relaxed">
+              <p
+                className="mt-3 text-sm leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.45)" }}
+              >
                 {item.a}
               </p>
             </details>
@@ -243,9 +467,17 @@ export default function EbookPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/5 py-8 text-center text-xs text-gray-600">
-        <p>© {new Date().getFullYear()} AI Scaling. All rights reserved.</p>
+      {/* ── Footer ── */}
+      <footer className="py-10 text-center">
+        <p
+          className="text-xs uppercase tracking-[0.2em]"
+          style={{
+            fontFamily: "'Courier New', Courier, monospace",
+            color: "rgba(255,255,255,0.15)",
+          }}
+        >
+          AI SCALING · AISCALINGCO.COM
+        </p>
       </footer>
     </main>
   );
