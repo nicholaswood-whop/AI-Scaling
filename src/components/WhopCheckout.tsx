@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { WhopCheckoutEmbed } from "@whop/checkout/react";
+import { trackCTAClick } from "@/components/TrackingEnhanced";
 
 /**
  * Whop embedded checkout with optional order bump.
@@ -19,9 +20,32 @@ export default function WhopCheckout() {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiscalingco.com";
 
   const [bumpActive, setBumpActive] = useState(false);
+  const checkoutRef = useRef<HTMLDivElement>(null);
+  const checkoutViewedRef = useRef(false);
 
   const activePlanId = bumpActive && bumpPlanId ? bumpPlanId : basePlanId;
   const activeValue = bumpActive ? 37.0 : 27.0;
+
+  // Track when checkout section scrolls into view
+  useEffect(() => {
+    const el = checkoutRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && !checkoutViewedRef.current) {
+            checkoutViewedRef.current = true;
+            trackCTAClick("checkout_visible", { value: activeValue });
+          }
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [activeValue]);
 
   useEffect(() => {
     // Fire Meta Pixel InitiateCheckout when the embed loads
@@ -64,7 +88,7 @@ export default function WhopCheckout() {
   }
 
   return (
-    <div className="w-full space-y-4">
+    <div ref={checkoutRef} className="w-full space-y-4">
       {/* Order Bump */}
       {bumpPlanId && (
         <div
@@ -73,7 +97,11 @@ export default function WhopCheckout() {
               ? "border-emerald-500/60 bg-emerald-500/[0.08]"
               : "border-white/10 bg-white/[0.03] hover:border-white/20"
           }`}
-          onClick={() => setBumpActive(!bumpActive)}
+          onClick={() => {
+            const newState = !bumpActive;
+            setBumpActive(newState);
+            trackCTAClick("order_bump_toggle", { bump_active: newState, value: newState ? 37 : 27 });
+          }}
         >
           {/* "ADD-ON" badge */}
           <div

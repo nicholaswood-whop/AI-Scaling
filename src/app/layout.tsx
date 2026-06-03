@@ -3,6 +3,7 @@ import "./globals.css";
 import MetaPixel from "@/components/MetaPixel";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import WhopPixel from "@/components/WhopPixel";
+import TrackingEnhanced from "@/components/TrackingEnhanced";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiscalingco.com";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
         <MetaPixel />
         <GoogleAnalytics />
         <WhopPixel />
+        <TrackingEnhanced />
       </body>
     </html>
   );
