@@ -88,6 +88,26 @@ export default function EbookPage() {
           The exact system for going from zero to a live, revenue-ready
           digital business. One AI operator. One week.
         </p>
+
+        {/* CTA Button — scrolls to checkout */}
+        <button
+          onClick={() => {
+            const el = document.getElementById("checkout");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            if (typeof window !== "undefined" && typeof window.fbq === "function") {
+              window.fbq("trackCustom", "cta_click", { location: "hero" });
+            }
+          }}
+          className="mt-10 w-full sm:w-auto px-8 py-4 text-base font-bold uppercase tracking-[0.15em] rounded-md transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.08)]"
+          style={{
+            backgroundColor: "white",
+            color: "#0a0a0a",
+            fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "0.05em",
+          }}
+        >
+          Get the Framework — $27
+        </button>
       </section>
 
       {/* ── VSL Section ── */}
@@ -317,6 +337,28 @@ export default function EbookPage() {
         </div>
       </section>
 
+      {/* ── Mid-page CTA ── */}
+      <section className="mx-auto max-w-3xl px-8 pb-20 text-center">
+        <button
+          onClick={() => {
+            const el = document.getElementById("checkout");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+            if (typeof window !== "undefined" && typeof window.fbq === "function") {
+              window.fbq("trackCustom", "cta_click", { location: "mid_page" });
+            }
+          }}
+          className="w-full sm:w-auto px-10 py-4 text-base font-bold uppercase tracking-[0.15em] rounded-md transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.08)]"
+          style={{
+            backgroundColor: "white",
+            color: "#0a0a0a",
+            fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            letterSpacing: "0.05em",
+          }}
+        >
+          Get It Now — $27
+        </button>
+      </section>
+
       {/* ── Not Theory ── */}
       <section data-track-section="proof" className="mx-auto max-w-3xl px-8 pb-20">
         <p
@@ -356,7 +398,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── CTA + Checkout ── */}
-      <section data-track-section="checkout" className="mx-auto max-w-xl px-8 pb-12">
+      <section id="checkout" data-track-section="checkout" className="mx-auto max-w-xl px-8 pb-12">
         <div className="text-center">
           <p
             className="mb-4 text-xs uppercase tracking-[0.25em]"
