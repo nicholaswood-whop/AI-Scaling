@@ -1,14 +1,26 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import WhopCheckout from "@/components/WhopCheckout";
+import { useVideoTracking } from "@/components/TrackingEnhanced";
 
 /**
  * PDF-style ebook landing page — matches the framework PDF aesthetic.
  * Pure black background, white typography, monospaced labels, editorial whitespace.
- * PDF-style ad campaigns link here: aiscalingco.com/ebook/v2
+ * PDF-style ad campaigns link here: aiscalingco.com/ebook
+ *
+ * Enhanced tracking (June 2026):
+ * - Scroll depth (25/50/75/100%)
+ * - Time on page (10s/30s/60s/120s/300s)
+ * - Section visibility via data-track-section attributes
+ * - Video engagement (play, progress milestones)
+ * - CTA clicks
+ * - Exit intent
  */
 export default function EbookPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useVideoTracking(videoRef);
+
   useEffect(() => {
     if (typeof window !== "undefined" && typeof window.fbq === "function") {
       window.fbq("track", "ViewContent", {
@@ -39,7 +51,7 @@ export default function EbookPage() {
       style={{ backgroundColor: "#0a0a0a" }}
     >
       {/* ── Hero ── */}
-      <section className="mx-auto max-w-3xl px-8 pt-20 pb-16">
+      <section data-track-section="hero" className="mx-auto max-w-3xl px-8 pt-20 pb-16">
         <p
           className="mb-6 text-xs uppercase tracking-[0.25em]"
           style={{
@@ -79,7 +91,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── VSL Section ── */}
-      <section className="mx-auto max-w-3xl px-8 pb-16">
+      <section data-track-section="vsl" className="mx-auto max-w-3xl px-8 pb-16">
         <div
           className="relative aspect-video w-full overflow-hidden rounded-lg"
           style={{
@@ -88,6 +100,7 @@ export default function EbookPage() {
           }}
         >
           <video
+            ref={videoRef}
             className="h-full w-full object-cover"
             autoPlay
             muted
@@ -101,7 +114,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── Stats Row ── */}
-      <section className="mx-auto max-w-3xl px-8 pb-20">
+      <section data-track-section="stats" className="mx-auto max-w-3xl px-8 pb-20">
         <div className="grid grid-cols-4 gap-6">
           {[
             { val: "7", label: "DAYS TO\nLAUNCH" },
@@ -135,7 +148,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── The Problem ── */}
-      <section className="mx-auto max-w-3xl px-8 pb-20">
+      <section data-track-section="problem" className="mx-auto max-w-3xl px-8 pb-20">
         <p
           className="mb-4 text-xs uppercase tracking-[0.25em]"
           style={{
@@ -191,7 +204,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── The System ── */}
-      <section className="mx-auto max-w-3xl px-8 pb-20">
+      <section data-track-section="system" className="mx-auto max-w-3xl px-8 pb-20">
         <p
           className="mb-4 text-xs uppercase tracking-[0.25em]"
           style={{
@@ -251,7 +264,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── Inside the Framework ── */}
-      <section className="mx-auto max-w-3xl px-8 pb-20">
+      <section data-track-section="framework" className="mx-auto max-w-3xl px-8 pb-20">
         <p
           className="mb-4 text-xs uppercase tracking-[0.25em]"
           style={{
@@ -305,7 +318,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── Not Theory ── */}
-      <section className="mx-auto max-w-3xl px-8 pb-20">
+      <section data-track-section="proof" className="mx-auto max-w-3xl px-8 pb-20">
         <p
           className="mb-4 text-xs uppercase tracking-[0.25em]"
           style={{
@@ -343,7 +356,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── CTA + Checkout ── */}
-      <section className="mx-auto max-w-xl px-8 pb-12">
+      <section data-track-section="checkout" className="mx-auto max-w-xl px-8 pb-12">
         <div className="text-center">
           <p
             className="mb-4 text-xs uppercase tracking-[0.25em]"
@@ -398,7 +411,7 @@ export default function EbookPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="mx-auto max-w-2xl px-8 pb-20 pt-8">
+      <section data-track-section="faq" className="mx-auto max-w-2xl px-8 pb-20 pt-8">
         <h2
           className="mb-10 text-2xl font-extrabold"
           style={{
