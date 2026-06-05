@@ -17,7 +17,10 @@ const OFFER_NAME = "AI Assistant Blueprint";
 const OFFER_VALUE = 47.0;
 
 export default function AssistantCheckout() {
-  const planId = process.env.NEXT_PUBLIC_WHOP_ASSISTANT_PLAN_ID ?? "";
+  // $47 one-time "AI Assistant Blueprint" plan (plan_5o9mIASo2qceZ → prod_b58bPizOajCWr).
+  // Hardcoded as default so checkout works without a Vercel env var; env still overrides.
+  const planId =
+    process.env.NEXT_PUBLIC_WHOP_ASSISTANT_PLAN_ID ?? "plan_5o9mIASo2qceZ";
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiscalingco.com";
 

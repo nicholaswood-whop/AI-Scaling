@@ -13,6 +13,7 @@ export const runtime = "nodejs";
  *   plan_180oGdyKRzeXg  → $27 framework only  → "framework_only"
  *   plan_dN0O49KdKgFrR  → $37 bundle           → "bundle"
  *   plan_CrWhYNtzhxpf1  → AI Marketing standalone → "marketing_only"
+ *   plan_5o9mIASo2qceZ  → $47 AI Assistant Blueprint → "assistant_blueprint"
  */
 
 const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY ?? "";
@@ -25,6 +26,7 @@ const PLAN_MAP: Record<string, string> = {
   plan_180oGdyKRzeXg: "framework_only",
   plan_dN0O49KdKgFrR: "bundle",
   plan_CrWhYNtzhxpf1: "marketing_only",
+  plan_5o9mIASo2qceZ: "assistant_blueprint",
 };
 
 function verifySignature(
