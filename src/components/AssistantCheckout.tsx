@@ -76,11 +76,18 @@ export default function AssistantCheckout() {
 
   return (
     <div ref={checkoutRef} className="w-full">
+      {/*
+        setupFutureUsage="off_session" saves the buyer's card so the one-click
+        $2,997 upsell on /assistant/upsell can charge it without re-entry.
+        returnUrl sends them straight to that upsell page; Whop appends
+        ?payment_id=pay_xxx which the upsell button uses to find the saved card.
+      */}
       <WhopCheckoutEmbed
         key={planId}
         planId={planId}
         theme="dark"
-        returnUrl={`${siteUrl}/assistant?status=success`}
+        setupFutureUsage="off_session"
+        returnUrl={`${siteUrl}/assistant/upsell`}
       />
     </div>
   );
