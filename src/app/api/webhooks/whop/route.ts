@@ -13,7 +13,7 @@ export const runtime = "nodejs";
  *   plan_180oGdyKRzeXg  → $27 framework only  → "framework_only"
  *   plan_dN0O49KdKgFrR  → $37 bundle           → "bundle"
  *   plan_CrWhYNtzhxpf1  → AI Marketing standalone → "marketing_only"
- *   plan_5o9mIASo2qceZ  → $47 AI Assistant Blueprint → "assistant_blueprint"
+ *   plan_bfQHHckcPtmP2  → $47 AI Assistant Blueprint → "assistant_blueprint"
  *   WHOP_DFY_PLAN_ID    → $2,997 Done-For-You setup → "dfy_setup"
  *
  * The DFY plan id is read from env (set WHOP_DFY_PLAN_ID) so buyers of the
@@ -33,7 +33,7 @@ const PLAN_MAP: Record<string, string> = {
   plan_180oGdyKRzeXg: "framework_only",
   plan_dN0O49KdKgFrR: "bundle",
   plan_CrWhYNtzhxpf1: "marketing_only",
-  plan_5o9mIASo2qceZ: "assistant_blueprint",
+  plan_bfQHHckcPtmP2: "assistant_blueprint",
   // $2,997 Done-For-You setup (one-click upsell) — id supplied via env.
   ...(DFY_PLAN_ID ? { [DFY_PLAN_ID]: "dfy_setup" } : {}),
 };
