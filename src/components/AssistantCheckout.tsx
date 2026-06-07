@@ -17,12 +17,21 @@ const OFFER_NAME = "AI Assistant Blueprint";
 const OFFER_VALUE = 47.0;
 
 export default function AssistantCheckout() {
-  // $47 one-time "AI Assistant Blueprint" plan (plan_5o9mIASo2qceZ → prod_b58bPizOajCWr).
+  // $47 one-time "AI Assistant Blueprint" plan (plan_bfQHHckcPtmP2 → prod_b58bPizOajCWr).
   // Hardcoded as default so checkout works without a Vercel env var; env still overrides.
   const planId =
-    process.env.NEXT_PUBLIC_WHOP_ASSISTANT_PLAN_ID ?? "plan_5o9mIASo2qceZ";
+    process.env.NEXT_PUBLIC_WHOP_ASSISTANT_PLAN_ID ?? "plan_bfQHHckcPtmP2";
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://aiscalingco.com";
+
+  // The one-click $2,997 upsell only goes live once the server-side Whop Owner
+  // API key (WHOP_API_KEY) is configured. Until then route buyers to the normal
+  // thank-you page so nobody hits an offer that cannot charge. Flip
+  // NEXT_PUBLIC_UPSELL_ENABLED="true" in Vercel to arm the upsell.
+  const upsellEnabled = process.env.NEXT_PUBLIC_UPSELL_ENABLED === "true";
+  const returnUrl = upsellEnabled
+    ? `${siteUrl}/assistant/upsell`
+    : `${siteUrl}/thank-you`;
 
   const checkoutRef = useRef<HTMLDivElement>(null);
   const firedRef = useRef(false);
@@ -76,11 +85,18 @@ export default function AssistantCheckout() {
 
   return (
     <div ref={checkoutRef} className="w-full">
+      {/*
+        setupFutureUsage="off_session" saves the buyer's card so the one-click
+        $2,997 upsell on /assistant/upsell can charge it without re-entry.
+        returnUrl sends them straight to that upsell page; Whop appends
+        ?payment_id=pay_xxx which the upsell button uses to find the saved card.
+      */}
       <WhopCheckoutEmbed
         key={planId}
         planId={planId}
         theme="dark"
-        returnUrl={`${siteUrl}/assistant?status=success`}
+        setupFutureUsage="off_session"
+        returnUrl={returnUrl}
       />
     </div>
   );

@@ -13,7 +13,12 @@ export const runtime = "nodejs";
  *   plan_180oGdyKRzeXg  → $27 framework only  → "framework_only"
  *   plan_dN0O49KdKgFrR  → $37 bundle           → "bundle"
  *   plan_CrWhYNtzhxpf1  → AI Marketing standalone → "marketing_only"
- *   plan_5o9mIASo2qceZ  → $47 AI Assistant Blueprint → "assistant_blueprint"
+ *   plan_bfQHHckcPtmP2  → $47 AI Assistant Blueprint → "assistant_blueprint"
+ *   WHOP_DFY_PLAN_ID    → $2,997 Done-For-You setup → "dfy_setup"
+ *
+ * The DFY plan id is read from env (set WHOP_DFY_PLAN_ID) so buyers of the
+ * one-click upsell are tagged "dfy_setup" and dropped into the dedicated
+ * Done-For-You email sequence in Beehiiv.
  */
 
 const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY ?? "";
@@ -22,11 +27,15 @@ const BEEHIIV_PUB_ID =
   "pub_5f264154-9cc1-43cc-b172-d16b4f73b38b";
 const WHOP_WEBHOOK_SECRET = process.env.WHOP_WEBHOOK_SECRET ?? "";
 
+const DFY_PLAN_ID = process.env.WHOP_DFY_PLAN_ID ?? "";
+
 const PLAN_MAP: Record<string, string> = {
   plan_180oGdyKRzeXg: "framework_only",
   plan_dN0O49KdKgFrR: "bundle",
   plan_CrWhYNtzhxpf1: "marketing_only",
-  plan_5o9mIASo2qceZ: "assistant_blueprint",
+  plan_bfQHHckcPtmP2: "assistant_blueprint",
+  // $2,997 Done-For-You setup (one-click upsell) — id supplied via env.
+  ...(DFY_PLAN_ID ? { [DFY_PLAN_ID]: "dfy_setup" } : {}),
 };
 
 function verifySignature(
