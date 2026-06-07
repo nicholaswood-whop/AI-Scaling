@@ -85,7 +85,7 @@ export default function WhopCheckout() {
       <WhopCheckoutEmbed
         planId={basePlanId}
         theme="dark"
-        returnUrl={`${siteUrl}/ebook?status=success`}
+        returnUrl={`${siteUrl}/thank-you`}
       />
     </div>
   );
