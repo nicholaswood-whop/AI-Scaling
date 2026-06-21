@@ -31,6 +31,7 @@ const REVEAL_AT_SECONDS = 1801; // ~30 min — tune to your VSL
 
 const GREEN = "#8BC63F";
 const PURPLE = "#7C5CFC";
+const ORANGE = "#EE6B1F";
 
 const headFont = {
   fontFamily:
@@ -248,22 +249,24 @@ export default function MiniPage() {
         <div className="animate-[fadeIn_0.6s_ease]">
           <MiniSalesBody scrollToCheckout={scrollToCheckout} />
 
-          {/* ── Order form / Whop checkout ── */}
+          {/* ── Order form / Whop checkout (light panel to match the order form) ── */}
           <section id="order" data-track-section="checkout" className="mx-auto max-w-xl px-6 py-16">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-              <p className="text-center text-sm font-semibold" style={{ color: GREEN }}>
-                🔒 Secure Order Form
-              </p>
-              <h3 className="mt-2 text-center text-xl font-bold text-white" style={headFont}>
+            <div className="rounded-2xl p-6 sm:p-8" style={{ background: "#f4f1ff" }}>
+              <h3 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl" style={headFont}>
                 YES! Enroll In The SellerSync Academy Mini-Mentorship!
               </h3>
-              <p className="mt-2 text-center text-gray-400">
+              <p className="mt-3 text-center text-2xl font-bold text-gray-900">
                 Price Today:{" "}
-                <span className="text-gray-500 line-through">$99.99</span>{" "}
-                <span className="text-2xl font-bold" style={{ color: GREEN }}>
-                  $17.99
-                </span>
+                <span className="font-bold text-gray-400 line-through">$99.99</span>{" "}
+                <span style={{ color: ORANGE }}>$17.99!</span>
               </p>
+              <div className="mt-3 flex justify-center gap-3" style={{ color: PURPLE }} aria-hidden>
+                {[0, 1, 2].map((i) => (
+                  <svg key={i} width="34" height="34" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 7l6 6 6-6M6 13l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ))}
+              </div>
               <div className="mt-6">
                 <MiniCheckout />
               </div>

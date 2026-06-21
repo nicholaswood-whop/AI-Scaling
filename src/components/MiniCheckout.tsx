@@ -78,7 +78,8 @@ export default function MiniCheckout() {
       <WhopCheckoutEmbed
         key={planId}
         planId={planId}
-        theme="dark"
+        theme="light"
+        themeOptions={{ accentColor: "green" }}
         returnUrl={`${siteUrl}/thank-you`}
       />
     </div>
